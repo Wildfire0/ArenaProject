@@ -1,0 +1,313 @@
+body{
+	background-color: #090909;
+	margin: 0px;
+	padding: 0px;
+	color: #fff;
+	font-family: "Times New Roman";
+}
+
+h1, h2, h3, h4, h5, h6{
+	text-align: center;
+	color: #f68200;
+	font-family: Calibri;
+	margin: 5px auto;
+}
+
+h1{
+	background-color: #642C01;
+	border: 2px solid #400;
+	border-radius: 10px;
+	margin: 20px auto;
+	min-width: auto;
+	max-width: 600px;
+}
+
+p{
+	font-size: 20px;
+	text-align: center;
+}
+
+a{
+	color: #fff;
+	text-decoration:none;
+	text-transform: uppercase;
+}
+
+a:hover{
+	text-decoration: underline;
+	color: #ffff00;
+}
+
+.center{
+	display: block;
+	margin: auto;
+	width: 80%;
+}
+
+.clearfix{
+	clear: both;
+	display: inline-block;
+	width: 100%;
+}
+
+#header{
+	background:url(../img/index.png) no-repeat center top / cover;
+	height: 500px;
+}
+
+#logo{
+	position: relative;
+	width: 800px;
+	margin: auto;
+}
+
+#headicon{
+	width: 100%;
+}
+
+#headlogo{
+	width: 60%;
+	position: absolute;
+	left: 150px;
+	bottom: 60px;
+}
+
+#a_information{
+	margin: 0px 25px;
+}
+
+#a_map{
+	margin: 0px 25px;
+}
+
+#a_price{
+	margin: 0px 25px;
+}
+
+#a_footer{
+	margin: 0px 25px;
+}
+
+#cursor{
+	width: 50px;
+	height: 50px;
+	position: fixed;
+	left: 25px;
+	bottom: 50px;
+	border: 2px solid #fff;
+	border-radius: 50px;
+	z-index: 9999;
+	opacity: 0.5;
+	transition: 1s all;
+}
+
+#cursor:hover{
+	opacity: 1;
+	transform: scale(1.1);
+}
+
+#navigation{
+	width: 100%;
+	background-color: #f66200;
+	height: 72px;
+	font-family: Calibri;
+	font-weight: bold;
+	font-size: 30px;
+	text-align: center;
+}
+
+#content1{
+	margin-top:20px;
+	padding-bottom: 20px;
+}
+
+#first_K{
+	font-size: 250%;
+	color: #f66200;
+}
+
+#first_content{
+	width: 100%;
+}
+
+#img1{
+	width: 25%;
+	float:left;
+}
+
+#text{
+	width: 47%;
+	margin: auto;
+}
+
+#img2{
+	width: 25%;
+	float: right;
+}
+
+#content2{
+}
+
+#panel1{
+	margin-bottom: 40px;
+}
+
+.img_text{
+	width: 49%;
+}
+
+.miniimg{
+	display: block;
+	width: 150px;
+	padding: 0px;
+	margin: auto;
+}
+
+#panel1_text{
+	margin: 0px;
+	padding: 0px;
+	float:left;
+}
+
+#panel1_img{
+	width: 49%;
+	float: right;
+}
+
+#panel2_text{
+	float: right;
+	width: 59%;
+	margin-top: 50px;
+}
+
+#panel2_img{
+	width: 40%;
+	float: left;
+}
+
+.footer__map{
+	display: block;
+	width: 100%;
+	height: 600px;
+	margin-bottom: 20px;
+	border: 5px solid #f66200;
+}
+
+.footer__map-title {
+	display: block;
+	width: 300px;
+    color: #f66200;
+    z-index: 2;
+	margin: auto;
+    background-color: #081f26;
+    padding: 10px;
+    border-radius: 5px;
+   	position: relative;
+   	top: 70px;
+}
+
+table{
+	text-align: center;
+	background-color: #301500;
+	padding: 0px;
+	margin: 0px;
+	border-radius: 20px;
+}
+
+td{
+	text-align: center;
+}
+
+#price{
+	width: 80%;
+	margin: auto;
+	position: relative;
+	top: 20px;
+}
+
+#price1{
+	width: 49%;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+}
+
+#price2{
+	width: 49%;
+	margin: 0px;
+	padding: 0px;
+	float: right;
+}
+
+#price1 table, #price2 table{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+footer{
+	width: 100%;
+	background-color: #f68200;
+	height: 70px;
+	display: block;
+	margin: 70px 0px 0px 0px;
+}
+
+#contacts{
+	width: 60%;
+	height: 50px;
+	margin: 10px auto 0px;
+	padding: 0px;
+}
+
+.footer_text{
+	font-family: calibri;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#vk{
+	display: block;
+	float: left;
+	width: 50px;
+	height: 50px;
+	margin: 0px 20px;
+}
+
+.phone{
+	display: block;
+	margin: 10px 20px;
+	width: 200px;
+	float: left;
+}
+
+#phone{
+	width: 20px;
+	height: 20px;
+	margin: 5px 10px;
+	float: left;
+}
+
+.phone span{
+	float: left;
+}
+
+.time{
+	display: block;
+	float: right;
+	margin: 0px 20px;
+}
+
+#clock{
+	float: left;
+	width: 50px;
+	height: 50px;
+}
+
+.time span{
+	float: left;
+	margin-top: 12px;
+}
+
+#price {
+	font-family: "Calibri";
+}
