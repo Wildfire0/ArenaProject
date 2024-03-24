@@ -51,7 +51,7 @@ a:hover{
 }
 
 #header{
-	background:url(../img/index.png) no-repeat center top / cover;
+	background:url(img/index.png) no-repeat center top / cover;
 	height: 500px;
 }
 
