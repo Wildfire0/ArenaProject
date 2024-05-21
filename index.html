@@ -6,6 +6,11 @@
 		<link rel="stylesheet" type="text/css" href="style2.css"/>
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 		<script async="" src="scripts/scroll.js"></script>
+		<?php
+		$db = new PDO('sqlite:' . __DIR__ . '/site_data.db');
+
+		$price_list = $db->query('SELECT * FROM ArenaProjectTable')->fetchAll(PDO::FETCH_ASSOC);;
+		?>
 	</head>
 	<body>
 		<div id="header">
@@ -14,22 +19,22 @@
 				<img id="headlogo" src="img/logo.png" alt="Arena"/>
 			</div>
 			<div id="navigation">
-				<a id="a_information" href="#content1">Информация</a>
-				<a id="a_map" href="#map">Карта</a>
-				<a id="a_price" href="#price">Прайс лист</a>
-				<a id="a_footer" href="#footer">Контакты</a>
+				<a class="a_navigation" href="#content1">Информация</a>
+				<a class="a_navigation" href="#map">Карта</a>
+				<a class="a_navigation" href="#price">Прайс лист</a>
+				<a class="a_navigation" href="#footer">Контакты</a>
 				<a href="#header"><img id="cursor" src="img/cursor_top.png" alt=""></a>
 			</div>
 		</div>
 		<div class="center">
 			<div id="content1">
+				<h1>Добро пожаловать в "Arena", мой друг!</h1>
 				<div id="first_content">
-					<h1>Добро пожаловать в "Arena", мой друг!</h1>
-					<img id="img1" src="img/Leonid_player.png" alt="ArenaPlayer"/>
-					<img id="img2" src="img/Sanya_player.png" alt="ArenaPlayers"/>
+					<img src="img/Leonid_player.png" alt="ArenaPlayer"/>
 					<div id="text">
 						<p><span id="first_K">К</span>омпьютерный клуб "Arena" – это круглосуточный доступ в интернет, современные компьютеры с мощной начинкой, 27 дюймовые мониторы и несколько просторных залов. Мы следим за игровым миром и постоянно обновляем раздел GAME ZONE, поэтому наш интернет клуб удивит вас разнообразием игр. В Arena" вы найдете достойных соперников, чтобы сразиться за звание лучшего игрока. Компьютерный клуб "Arena" оснащен технически продвинутыми ПК, способными «потянуть» любую современную игру. Недалеко от метро, всего пять минут от станции метро Парк Победы, есть возможность припарковать машину около клуба. Приходи. Ждем)</p>
 					</div>
+					<img src="img/Sanya_player.png" alt="ArenaPlayers"/>
 				</div>
 			</div>
 			<div id="content2">
@@ -49,7 +54,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="map">
+			<div id="mapblock">
 				<h2 class="map-title">Компьютерный клуб ARENA</h2>
 				<iframe class="map" src="https://yandex.ru/map-widget/v1/?um=constructor%3A01458501c8619a85b0f14a4b77b8b995f8086fef70a639ad49b3b4fc90c167ee&amp;source=constructor" frameborder="0" allowfullscreen=""></iframe>
 			</div>
@@ -66,56 +71,13 @@
 							<td>Будние дни</td>
 							<td>Выходные дни</td>
 						</tr>
-						<tr>
-							<td >1 час<br>00:00-13:00</td>
-							<td>50 руб.</td>
-							<td>55 руб.</td>
-						</tr>
-						<tr>
-							<td>1 час<br>13:00-00:00</td>
-							<td>55 руб.</td>
-							<td>60 руб.</td>
-
-						</tr>
-						<tr>
-							<td>1 минута<br>09:00-08:00</td>
-							<td>1 руб.</td>
-							<td>1 руб.</td>
-						</tr>
-						<tr>
-							<td>Пакет 3 часа<br>09:00-08:00</td>
-							<td>140 руб.<br>1 час = 47 руб.</td>
-							<td>160 руб.<br>1 час = 53 руб.</td>
-						</tr>
-						<tr>
-							<td>Пакет 5 часов<br>09:00-18:00</td>
-							<td>180 руб.<br>1 час = 36 руб.</td>
-							<td>200 руб.<br>1 час = 40 руб.</td>
-						</tr>
-						<tr>
-							<td>Cyber утро<br>(4 часа)<br>09:00-13:00</td>
-							<td>140 руб.<br>1 час = 35 руб.</td>
-							<td>160 руб.<br>1 час = 40 руб.</td>
-						</tr>
-						<tr>
-							<td>Cyber день<br>(8 часов)<br>13:00-21:00</td>
-							<td>260 руб.<br>1 час = 32 руб.</td>
-							<td>280 руб.<br>1 час = 35 руб.</td>
-						</tr>
-						<tr>
-							<td>Cyber вечер<br>(6 часов)<br>17:00-23:00</td>
-							<td>200 руб.<br>1 час = 33 руб.</td>
-							<td>220 руб.<br>1 час = 36 руб.</td>
-						</tr>
-						<tr>
-							<td>Cyber ночь<br>(9 часов)<br>23:00-08:00</td>
-							<td>150 руб.<br>1 час = 16 руб.</td>
-							<td>150 руб.<br>1 час = 16 руб.</td>
-						</tr>
-						<tr>
-							<td>Пакет Crazy<br>(23 часа)<br>09:00-08:00</td>
-							<td colspan="2">500 руб.<br>1 час = 21 руб.</td>
-						</tr>
+						<?php foreach ($price_list as $price_item): ?>
+							<tr>
+								<td class="tdcont"><?php echo htmlspecialchars($price_item['Name']); ?><br><?php echo htmlspecialchars($price_item['Time']); ?></td>
+								<td class="tdcont"><?php echo htmlspecialchars($price_item['Price']); ?> руб.</td>
+								<td class="tdcont"><?php echo htmlspecialchars($price_item['Weekend Price']); ?> руб.</td>
+							</tr>
+						<?php endforeach; ?>
 					</table>
 				</div>
 				<div id="price2">
@@ -128,58 +90,14 @@
 						<tr class="tableheader">
 							<td>Будние дни</td>
 							<td>Выходные дни</td>
-							</tr>
-
+						</tr>
+						<?php foreach ($price_list as $price_item): ?>
 							<tr>
-							<td>1 час<br>00:00-13:00</td>
-							<td>50 руб.</td>
-							<td>55 руб.</td>
-						</tr>
-						<tr>
-							<td>1 час<br>13:00-00:00</td>
-							<td>55 руб.</td>
-							<td>60 руб.</td>
-
-						</tr>
-						<tr>
-							<td>1 минута<br>09:00-08:00</td>
-							<td>1 руб.</td>
-							<td>1 руб.</td>
-						</tr>
-						<tr>
-							<td>Пакет 3 часа<br>09:00-08:00</td>
-							<td>140 руб.<br>1 час = 47 руб.</td>
-							<td>160 руб.<br>1 час = 53 руб.</td>
-						</tr>
-						<tr>
-							<td>Пакет 5 часов<br>09:00-18:00</td>
-							<td>180 руб.<br>1 час = 36 руб.</td>
-							<td>200 руб.<br>1 час = 40 руб.</td>
-						</tr>
-						<tr>
-							<td>Cyber утро<br>(4 часа)<br>09:00-13:00</td>
-							<td>140 руб.<br>1 час = 35 руб.</td>
-							<td>160 руб.<br>1 час = 40 руб.</td>
-						</tr>
-						<tr>
-							<td>Cyber день<br>(8 часов)<br>13:00-21:00</td>
-							<td>260 руб.<br>1 час = 32 руб.</td>
-							<td>280 руб.<br>1 час = 35 руб.</td>
-						</tr>
-						<tr>
-							<td>Cyber вечер<br>(6 часов)<br>17:00-23:00</td>
-							<td>200 руб.<br>1 час = 33 руб.</td>
-							<td>220 руб.<br>1 час = 36 руб.</td>
-						</tr>
-						<tr>
-							<td>Cyber ночь<br>(9 часов)<br>23:00-08:00</td>
-							<td>150 руб.<br>1 час = 16 руб.</td>
-							<td>150 руб.<br>1 час = 16 руб.</td>
-						</tr>
-						<tr>
-							<td>Пакет Crazy<br>(23 часа)<br>09:00-08:00</td>
-							<td colspan="2">500 руб.<br>1 час = 21 руб.</td>
-						</tr>
+								<td class="tdcont"><?php echo htmlspecialchars($price_item['Name']); ?><br><?php echo htmlspecialchars($price_item['Time']); ?></td>
+								<td class="tdcont"><?php echo htmlspecialchars($price_item['VIP Price']); ?> руб.</td>
+								<td class="tdcont"><?php echo htmlspecialchars($price_item['VIP weekend Price']); ?> руб.</td>
+							</tr>
+						<?php endforeach; ?>
 					</table>
 				</div>
 			</div> 
