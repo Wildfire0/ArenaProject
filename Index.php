@@ -20,7 +20,7 @@
 			</div>
 			<div id="navigation">
 				<a class="a_navigation" href="#content1">Информация</a>
-				<a class="a_navigation" href="#map">Карта</a>
+				<a class="a_navigation" href="#maplock">Карта</a>
 				<a class="a_navigation" href="#price">Прайс лист</a>
 				<a class="a_navigation" href="#footer">Контакты</a>
 				<a href="#header"><img id="cursor" src="img/cursor_top.png" alt=""></a>
@@ -118,4 +118,5 @@
 			</div>
 		</footer>
 	</body>
+
 </html>
